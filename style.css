@@ -1,0 +1,322 @@
+:root {
+    /* Discord Official Colors */
+    --bg-primary: #313338;
+    --bg-secondary: #2b2d31;
+    --bg-input: #1e1f22;
+    --text-normal: #dbdee1;
+    --text-muted: #949ba4;
+    --header-primary: #f2f3f5;
+    --blurple: #5865F2;
+    --blurple-hover: #4752C4;
+    --danger: #da373c;
+    --danger-hover: #a12828;
+    --success: #23a559;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'gg sans', 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-normal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-image: radial-gradient(circle at center, #383a40 0%, #2b2d31 100%);
+}
+
+/* POPUP OVERLAY STYLES */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(3px);
+}
+
+.modal-card {
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.shield-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 15px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shield-icon img {
+    width: 100%;
+    height: auto;
+}
+
+/* MAIN APP STYLES */
+.app-container {
+    width: 100%;
+    max-width: 480px;
+}
+
+.discord-card {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 32px;
+    animation: popIn 0.3s ease-out;
+}
+
+/* Updated Server Icon for your Image */
+.server-icon {
+    width: 90px;
+    height: 90px;
+    background-color: var(--bg-primary);
+    border-radius: 50%; /* Makes it perfectly round */
+    margin: 0 auto 20px auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    overflow: hidden; /* Keeps the image inside the circle */
+}
+
+.server-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-title {
+    color: var(--header-primary);
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.card-subtitle {
+    color: var(--text-muted);
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 24px;
+    line-height: 1.4;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.required {
+    color: var(--danger);
+}
+
+input {
+    width: 100%;
+    background-color: var(--bg-input);
+    color: var(--text-normal);
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: box-shadow 0.2s ease;
+}
+
+input:focus {
+    box-shadow: 0 0 0 1px #00a8fc;
+}
+
+.btn-blurple, .btn-danger {
+    width: 100%;
+    padding: 12px;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    color: white;
+    transition: background-color 0.2s ease;
+    margin-bottom: 10px;
+}
+
+.btn-blurple {
+    background-color: var(--blurple);
+}
+
+.btn-blurple:hover {
+    background-color: var(--blurple-hover);
+}
+
+.btn-danger {
+    background-color: var(--danger);
+    margin-top: 20px;
+}
+
+.btn-danger:hover {
+    background-color: var(--danger-hover);
+}
+
+.footer-divider {
+    height: 1px;
+    background-color: var(--bg-input);
+    margin: 20px 0 15px 0;
+}
+
+.footer-text {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+/* Utilities */
+.hidden { display: none !important; }
+
+/* Loading Screen Styles */
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.discord-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid var(--bg-input);
+    border-top: 4px solid var(--blurple);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.console-box {
+    background-color: var(--bg-input);
+    width: 100%;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 20px;
+    border-left: 3px solid var(--blurple);
+}
+
+.console-text {
+    font-family: monospace;
+    font-size: 13px;
+    color: var(--success);
+    margin: 0;
+}
+
+/* Success Screen */
+.success-header {
+    display: flex;
+    justify-content: center;
+}
+
+.check-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--success);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.request-box {
+    background-color: var(--bg-input);
+    border-radius: 4px;
+    padding: 15px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.req-label {
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.req-id {
+    color: var(--header-primary);
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+/* Prank Screen */
+.clown-emoji {
+    font-size: 80px;
+    text-align: center;
+    margin-bottom: 16px;
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.9); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+
+.prank-title {
+    color: var(--danger);
+    font-size: 32px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.prank-text {
+    font-size: 16px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.highlight {
+    color: var(--blurple);
+    font-weight: 700;
+}
+
+.reality-check {
+    background-color: var(--bg-input);
+    border-left: 4px solid var(--danger);
+    padding: 16px;
+    border-radius: 4px;
+    margin-top: 24px;
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+}

